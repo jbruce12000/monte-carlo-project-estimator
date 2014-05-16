@@ -117,4 +117,4 @@ if __name__== "__main__":
     p.google_histogram()
     print "OK %d percent chance %s will be done in %d days" % (85,p,p.n_percentile(percentile=85))
     # want to get total man days at 85% is 458 man days for this project
-    print "mindays = %d, maxdays = %d" % (p.mindays(),p.maxdays())
+    #print "mindays = %d, maxdays = %d" % (p.mindays(),p.maxdays())

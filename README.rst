@@ -11,6 +11,7 @@ Getting Started
   virtualenv mcpe
   source mcpe/bin/activate
   pip install -r requirements.txt
+  ./monte-carlo.py -f sample-project.json
 
 Background
 ----------
