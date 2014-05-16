@@ -28,10 +28,12 @@ class ticket(object):
         return self.name
 
 class project(object):
-    def __init__(self, name=None):
-        self.name = name
+    def __init__(self, file=file):
+        self.name = None
         self.tickets = []
         self.totals = []
+        self.file = file
+        self.read_project()
 
     def mindays(self):
         total = 0
@@ -48,10 +50,13 @@ class project(object):
     def add_ticket(self,t):
         self.tickets.append(t)
 
-    def read_project(self,file):
-        with open(file) as json_file:
+    def read_project(self):
+        with open(self.file) as json_file:
             d = json.load(json_file)
             json_file.close()
+
+        self.name = d["name"]
+
         for tick in d["tickets"]:
             # fix - check that each exists and set sane defaults
             t = ticket( name=tick["name"], mindays=tick["mindays"], maxdays=tick["maxdays"], parallelizable=tick["parallelizable"])
@@ -120,8 +125,7 @@ if __name__== "__main__":
 
     # FIXME - move project name to json
 
-    p = project(name="the project")
-    p.read_project(file=options.filename)
+    p = project(file=options.filename)
     p.get_totals(iterations=100000)
     p.google_histogram()
     print "OK %d percent chance %s will be done in %d days" % (85,p,p.n_percentile(percentile=85))
