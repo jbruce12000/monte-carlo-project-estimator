@@ -103,8 +103,11 @@ class project(object):
 if __name__== "__main__":
     #import pdb; pdb.set_trace()
 
+    # FIXME - move project name to json
+    # FIXME - move file name to -f param
+
     p = project(name="the project")
-    p.read_project(file="/home/jbruce/tmp/proj.json")
+    p.read_project(file="./sample-project.json")
     p.get_totals(iterations=100000)
     p.google_histogram()
     print "OK %d percent chance %s will be done in %d days" % (85,p,p.n_percentile(percentile=85))
