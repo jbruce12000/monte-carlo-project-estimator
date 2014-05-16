@@ -67,7 +67,8 @@ class project(object):
             print "OK %d guesses for %s between %d and %d days" % (iterations, t, t.mindays, t.maxdays)
             for index,guess in enumerate(t.guesses):
                 self.totals[index] = self.totals[index] + float(t.guesses[index]) * t.parallelizable
-                self.unparallelized_totals[index] = self.unparallelized_totals[index] + float(t.guesses[index])
+                # this could be used to get a raw estimate (without parallelization of the number of man days for a project
+                #self.unparallelized_totals[index] = self.unparallelized_totals[index] + float(t.guesses[index])
 
 
     def n_percentile(self,percentile=85):
