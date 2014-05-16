@@ -88,6 +88,7 @@ class project(object):
 
     def google_histogram(self):
         print "OK printing histogram"
+        print "Day\tGuesses where project completed on that day"
         hist = self.histogram()
         range = self.range_of_ints(self.totals)
         for index, item in enumerate(hist):
