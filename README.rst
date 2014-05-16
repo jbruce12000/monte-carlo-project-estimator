@@ -4,11 +4,13 @@ Monte Carlo simulator to estimate how many days a project will take
 
 Getting Started
 ---------------
-git clone git://github.com/jbruce12000/monte-carlo-project-estimator.git
-cd monte-carlo-project-estimator
-virtualenv mcpe
-source mcpe/bin/activate
-pip install -r requirements.txt
+::
+
+  git clone git://github.com/jbruce12000/monte-carlo-project-estimator.git
+  cd monte-carlo-project-estimator
+  virtualenv mcpe
+  source mcpe/bin/activate
+  pip install -r requirements.txt
 
 Background
 ----------
