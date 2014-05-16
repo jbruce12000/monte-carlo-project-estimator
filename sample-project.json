@@ -1,0 +1,225 @@
+{
+"tickets" : [
+  {
+    "name" : "CMSSAI-1250",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1251",
+    "mindays" : 10,
+    "maxdays" : 30,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "SUPPORT-5588",
+    "mindays" : 2,
+    "maxdays" : 15,
+    "parallelizable" : 1
+  },
+  {
+    "name" : "SUPPORT-5589",
+    "mindays" : 2,
+    "maxdays" : 15,
+    "parallelizable" : 1
+  },
+  {
+    "name" : "SUPPORT-5590",
+    "mindays" : 2,
+    "maxdays" : 4,
+    "parallelizable" : 1
+  },
+  {
+    "name" : "SUPPORT-5591",
+    "mindays" : 2,
+    "maxdays" : 4,
+    "parallelizable" : 1
+  },
+  {
+    "name" : "SUPPORT-5593",
+    "mindays" : 3,
+    "maxdays" : 10,
+    "parallelizable" : 0
+  },
+
+
+  {
+    "name" : "CMSAPI-337",
+    "mindays" : 3,
+    "maxdays" : 8,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1163",
+    "mindays" : 15,
+    "maxdays" : 20,
+    "parallelizable" : 3
+  },
+  {
+    "name" : "CMSSAI-1165",
+    "mindays" : 15,
+    "maxdays" : 25,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1166",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1168",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1169",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1228",
+    "mindays" : 5,
+    "maxdays" : 15,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1229",
+    "mindays" : 5,
+    "maxdays" : 15,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1071",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 3
+  },
+  {
+    "name" : "CMSSAI-1072",
+    "mindays" : 15,
+    "maxdays" : 30,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1173",
+    "mindays" : 10,
+    "maxdays" : 15,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1227",
+    "mindays" : 5,
+    "maxdays" : 15,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSSAI-1236",
+    "mindays" : 5,
+    "maxdays" : 15,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "DOC-180",
+    "mindays" : 5,
+    "maxdays" : 10,
+    "parallelizable" : 2
+  },
+
+
+  {
+    "name" : "DOC-181",
+    "mindays" : 5,
+    "maxdays" : 10,
+    "parallelizable" : 2
+  },
+  {
+    "name" : "CMSAPI-327",
+    "mindays" : 2,
+    "maxdays" : 6,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-328",
+    "mindays" : 5,
+    "maxdays" : 12,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-329",
+    "mindays" : 5,
+    "maxdays" : 12,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-330",
+    "mindays" : 5,
+    "maxdays" : 12,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-331",
+    "mindays" : 5,
+    "maxdays" : 12,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-335",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-336",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-320",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-321",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-322",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-323",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-324",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-325",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  },
+  {
+    "name" : "CMSAPI-326",
+    "mindays" : 10,
+    "maxdays" : 21,
+    "parallelizable" : 6
+  }
+
+]
+}
