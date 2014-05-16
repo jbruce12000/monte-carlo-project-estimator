@@ -34,6 +34,6 @@ where:
   name = string, a unique name for this ticket/task.
   mindays = integer, the minimum number of days to complete the task
   maxdays = integer, the maximum number of days to complete the task
-  parallelizable = how many other tasks could be done in parallel with this task on this project.  this is how you account for team size and task dependencies.
+  parallelizable = integer, 0 to N, how many other tasks could be done in parallel with this task on this project.  this is how team size and task dependencies are accounted for. 
 
 .. note:: The MOST IMPORTANT THING to the accuracy of this estimation is that you're 90% sure every task can be completed within the range you specify.  If you are not 90% sure, fix that.  Either make the range bigger or learn more about the task so you are sure.
