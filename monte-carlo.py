@@ -123,8 +123,6 @@ if __name__== "__main__":
 
     #import pdb; pdb.set_trace()
 
-    # FIXME - move project name to json
-
     p = project(file=options.filename)
     p.get_totals(iterations=100000)
     p.google_histogram()
