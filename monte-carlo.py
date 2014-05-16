@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from scipy import stats
 import json
+import optparse
 
 class ticket(object):
     def __init__(self, name=None, mindays=0, maxdays=0, parallelizable=0):
@@ -101,15 +102,19 @@ class project(object):
         return self.name
 
 if __name__== "__main__":
+    parser = optparse.OptionParser("usage: monte-carlo.py --file filename")
+    parser.add_option("-f", "--file", dest="filename",
+        type="string", help="json project file")
+    (options, args) = parser.parse_args()
+
     #import pdb; pdb.set_trace()
 
     # FIXME - move project name to json
-    # FIXME - move file name to -f param
 
     p = project(name="the project")
-    p.read_project(file="./sample-project.json")
+    p.read_project(file=options.filename)
     p.get_totals(iterations=100000)
     p.google_histogram()
     print "OK %d percent chance %s will be done in %d days" % (85,p,p.n_percentile(percentile=85))
     # want to get total man days at 85% is 458 man days for this project
-    #print "mindays = %d, maxdays = %d" % (p.mindays(),p.maxdays())
+    print "mindays = %d, maxdays = %d" % (p.mindays(),p.maxdays())
