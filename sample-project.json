@@ -25,19 +25,19 @@
     "parallelizable" : 1
   },
   {
-    "name" : "TASK4",
+    "name" : "TASK5",
     "mindays" : 2,
     "maxdays" : 4,
     "parallelizable" : 1
   },
   {
-    "name" : "TASK4",
+    "name" : "TASK6",
     "mindays" : 2,
     "maxdays" : 4,
     "parallelizable" : 1
   },
   {
-    "name" : "TASK4",
+    "name" : "TASK7",
     "mindays" : 3,
     "maxdays" : 10,
     "parallelizable" : 0
