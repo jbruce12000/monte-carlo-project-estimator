@@ -2,6 +2,7 @@
 from scipy import stats
 import json
 import optparse
+import os
 
 class ticket(object):
     def __init__(self, name=None, mindays=0, maxdays=0, parallelizable=0):
@@ -107,6 +108,12 @@ if __name__== "__main__":
     parser.add_option("-f", "--file", dest="filename",
         type="string", help="json project file")
     (options, args) = parser.parse_args()
+
+    if options.filename:
+        if not os.path.isfile(options.filename):
+            raise Exception("%s is not a file" % options.filename)
+    else:
+        parser.error("-f or --file is required")
 
     #import pdb; pdb.set_trace()
 
