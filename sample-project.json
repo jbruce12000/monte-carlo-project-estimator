@@ -1,13 +1,13 @@
 {
 "tickets" : [
   {
-    "name" : "TASK 1",
+    "name" : "TASK1",
     "mindays" : 10,
     "maxdays" : 21,
     "parallelizable" : 6
   },
   {
-    "name" : "TASK 2",
+    "name" : "TASK2",
     "mindays" : 10,
     "maxdays" : 30,
     "parallelizable" : 6
