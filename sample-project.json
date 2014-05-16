@@ -1,4 +1,5 @@
 {
+"name" : "sample project",
 "tickets" : [
   {
     "name" : "TASK1",
