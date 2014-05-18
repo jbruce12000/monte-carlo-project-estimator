@@ -14,7 +14,12 @@ class ticket(object):
         self.guesses = []
 
     def random_guesses(self, size=100000, stddevs=3.29):
-        """make size random guesses from median out to stddevs"""
+        """make size random guesses from median out to stddevs
+           
+        Keyword args:
+        size -- number of iterations for this simulation
+        stddevs -- distance to include from median in standard deviations
+        """
         self.guesses = stats.norm.rvs(loc=self.mediandays, scale=stddevs, size=size)
         return self.guesses
 
@@ -74,7 +79,11 @@ class project(object):
         return len(self.tickets)
 
     def get_totals(self,iterations=100000):
-        """make random guesses for each ticket range and total them"""
+        """make random guesses for each ticket range and total them
+
+        Keyword args:
+        iterations -- number of iterations for this simulation
+        """
         self.totals = [0] * iterations
         self.unparallelized_totals = [0] * iterations
         for t in self.tickets:
@@ -87,7 +96,11 @@ class project(object):
 
 
     def n_percentile(self,percentile=85):
-        """return the number of days at N percent"""
+        """return the number of days at N percent
+   
+        Keyword args:
+        percentile -- percent at which you'd like day returned
+        """
         hist = self.histogram()
         total = 0
         for item in hist:
