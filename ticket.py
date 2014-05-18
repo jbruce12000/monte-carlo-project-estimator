@@ -32,8 +32,8 @@ class Ticket(object):
 
 class TestTicket:
     def test_negatives_to_zero(self):
-        list = [-1,0,1]
+        alist = [-1,0,1]
         correct = [0,0,1]
         t = Ticket()
-        answer = t.negatives_to_zero(list)
+        answer = t.negatives_to_zero(alist)
         assert answer == correct

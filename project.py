@@ -105,8 +105,8 @@ class Project(object):
 
 class TestProject:
     def test_range_of_ints(self):
-        list = [7,3,6]
+        alist = [7,3,6]
         correct = [3,4,5,6,7]
         p = Project()
-        answer = p.range_of_ints(list)
+        answer = p.range_of_ints(alist)
         assert answer == correct 
