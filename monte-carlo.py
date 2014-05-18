@@ -15,10 +15,11 @@ class ticket(object):
 
     def random_guesses(self, size=100000, stddevs=3.29):
         self.guesses = stats.norm.rvs(loc=self.mediandays, scale=stddevs, size=size)
-        self.guesses = self.negatives_to_zero(self.guesses)
         return self.guesses
 
     def negatives_to_zero(self,list):
+        # outliers are sometimes negative.  I am torn on whether to remove
+        # them.  hubbard says leave them.
         for index, item in enumerate(list):
             if item < 0:
                 list[index] = 0
