@@ -39,3 +39,12 @@ where:
   parallelizable = integer, 0 to N, how many other tasks could be done in parallel with this task on this project.  this is how team size and task dependencies are accounted for. 
 
 .. note:: The MOST IMPORTANT THING to the accuracy of this estimation is that you're 90% sure every task can be completed within the range you specify.  If you are not 90% sure, fix that.  Either make the range bigger or learn more about the task so you are sure.
+
+Running Tests
+-------------
+py.test is installed with the requirements so if you followed the Getting Started instructions, run tests like so...
+::
+
+  source mcpe/bin/activate
+  py.test *.py
+
