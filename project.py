@@ -105,8 +105,35 @@ class Project(object):
 
 class TestProject:
     def test_range_of_ints(self):
-        alist = [7,3,6]
-        correct = [3,4,5,6,7]
+        alist = [-2,7,3,6]
+        correct = [-2,-1,0,1,2,3,4,5,6,7]
         p = Project()
         answer = p.range_of_ints(alist)
-        assert answer == correct 
+        assert answer == correct
+
+    def test_num_tickets(self):
+        p = Project()
+        assert p.num_tickets() == 0
+        t = Ticket()
+        p.add_ticket(t)
+        assert p.num_tickets() == 1
+        p.add_ticket(t)
+        assert p.num_tickets() == 2
+
+    def test_mindays(self):
+        p = Project()
+        assert p.mindays() == 0 
+        t = Ticket(mindays=2)
+        p.add_ticket(t)
+        t = Ticket(mindays=3)
+        p.add_ticket(t)
+        assert p.mindays() == 5 
+
+    def test_maxdays(self):
+        p = Project()
+        assert p.maxdays() == 0
+        t = Ticket(maxdays=11)
+        p.add_ticket(t)
+        t = Ticket(maxdays=3)
+        p.add_ticket(t)
+        assert p.maxdays() == 14 
