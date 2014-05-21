@@ -1,5 +1,6 @@
 from ticket import Ticket
 from scipy import stats
+from datetime import datetime, timedelta
 import json
 import os
 
@@ -8,9 +9,14 @@ class Project(object):
         self.name = None
         self.tickets = []
         self.totals = []
+        self.startdate = datetime.now()
         self.file = file
         if self.file:
             self.read_project()
+
+    def enddate(self,days):
+       d = self.startdate + timedelta(days=days) 
+       return d.strftime("%Y-%m-%d")
 
     def mindays(self):
         """sum of ticket mindays"""
@@ -37,6 +43,9 @@ class Project(object):
             json_file.close()
 
         self.name = d["name"]
+        if "start" in d:
+            startdate = d["start"]
+            self.startdate = datetime.strptime(startdate, '%Y-%m-%d')
 
         for tick in d["tickets"]:
             # fix - check that each exists and set sane defaults
@@ -85,11 +94,16 @@ class Project(object):
     def google_histogram(self):
         """tab separated histogram of days to guesses"""
         print "OK printing histogram"
-        print "Day\tGuesses where project completed on that day"
+        print "Day\tGuesses\tLikelyhood of completion on that day"
         hist = self.histogram()
+        total = 0
+        for item in hist:
+            total = total + item
+        totalsofar = 0
         range = self.range_of_ints(self.totals)
         for index, item in enumerate(hist):
-            print "%d\t%d" % (range[index],hist[index])
+            totalsofar = totalsofar + hist[index]
+            print "%d\t%d\t%d" % (range[index],hist[index],(float(totalsofar)/total)*100)
 
     def histogram(self):
         """histogram of days to guesses"""
