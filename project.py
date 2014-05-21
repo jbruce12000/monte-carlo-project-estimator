@@ -9,13 +9,20 @@ class Project(object):
         self.name = None
         self.tickets = []
         self.totals = []
-        self.startdate = datetime.now()
+        self._start = datetime.now()
         self.file = file
         if self.file:
             self.read_project()
 
+    @property
+    def startdate(self):
+       return self._start.strftime("%Y-%m-%d")
+    @startdate.setter
+    def startdate(self,d):
+        self._start = d
+
     def enddate(self,days):
-       d = self.startdate + timedelta(days=days) 
+       d = self._start + timedelta(days=days) 
        return d.strftime("%Y-%m-%d")
 
     def mindays(self):
@@ -44,8 +51,8 @@ class Project(object):
 
         self.name = d["name"]
         if "start" in d:
-            startdate = d["start"]
-            self.startdate = datetime.strptime(startdate, '%Y-%m-%d')
+            blah = datetime.strptime(d["start"], '%Y-%m-%d')
+            self.startdate = blah
 
         for tick in d["tickets"]:
             # fix - check that each exists and set sane defaults

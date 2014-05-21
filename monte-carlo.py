@@ -21,9 +21,11 @@ if __name__== "__main__":
     p.get_totals(iterations=100000)
     p.google_histogram()
     days = p.n_percentile(percentile=85)
+    # fix - print start date too
+    start_date = p.startdate
     end_date = p.enddate(days)
     print "OK %d percent chance %s will be done in %d days" % (85,p,days)
     if(end_date):
-        print "OK end date is %s" % end_date
+        print "OK start date is %s and end date is %s" % (start_date,end_date)
     # want to get total man days at 85% is 458 man days for this project
     #print "mindays = %d, maxdays = %d" % (p.mindays(),p.maxdays())
