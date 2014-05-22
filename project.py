@@ -19,7 +19,10 @@ class Project(object):
        return self._start.strftime("%Y-%m-%d")
     @startdate.setter
     def startdate(self,d):
-        self._start = d
+        if (type(d) is str) or type(d) is unicode:
+            self._start = datetime.strptime(d, '%Y-%m-%d')
+        else:
+            self._start = d
 
     def enddate(self,days):
        d = self._start + timedelta(days=days) 
@@ -51,8 +54,7 @@ class Project(object):
 
         self.name = d["name"]
         if "start" in d:
-            blah = datetime.strptime(d["start"], '%Y-%m-%d')
-            self.startdate = blah
+            self.startdate = d["start"]
 
         for tick in d["tickets"]:
             # fix - check that each exists and set sane defaults
@@ -125,6 +127,16 @@ class Project(object):
         return self.name
 
 class TestProject:
+
+    def test_dates(self):
+        p = Project()
+        p.startdate = datetime.strptime("2014-05-01", '%Y-%m-%d')
+        assert p.enddate(5) == "2014-05-06"
+        p.startdate = "2014-05-01"
+        assert p.enddate(10) == "2014-05-11"
+        p.startdate = u"2014-05-01"
+        assert p.enddate(20) == "2014-05-21"
+
     def test_range_of_ints(self):
         alist = [-2,7,3,6]
         correct = [-2,-1,0,1,2,3,4,5,6,7]
