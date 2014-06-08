@@ -11,7 +11,7 @@ Getting Started
   virtualenv mcpe
   source mcpe/bin/activate
   # on ubuntu only...
-  # sudo apt-get install gfortran libopenblas-dev liblapack-dev
+  # sudo apt-get install gfortran libopenblas-dev liblapack-dev build-essential
   pip install -r requirements.txt
   ./monte-carlo.py -f sample-project.json
 
