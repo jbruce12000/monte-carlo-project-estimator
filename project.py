@@ -130,7 +130,9 @@ class Project(object):
 
     def man_days(self,percentile=85):
         """
-        this uses unparallelized totals to get the number of man days the project will take.  this is the same as setting parallelizable=0 for every tasks in the project.
+        this uses unparallelized totals to get the number of man days the
+        project will take.  this is the same as setting parallelizable=0
+        for every task in the project.
         """
         return self.n_percentile(percentile=percentile,totals=self.unparallelized_totals)
 
