@@ -79,22 +79,25 @@ class Project(object):
             for index,guess in enumerate(t.guesses):
                 self.totals[index] = self.totals[index] + float(t.guesses[index]) * t.parallelizable
                 # this could be used to get a raw estimate (without parallelization of the number of man days for a project
-                #self.unparallelized_totals[index] = self.unparallelized_totals[index] + float(t.guesses[index])
+                self.unparallelized_totals[index] = self.unparallelized_totals[index] + float(t.guesses[index])
 
-    def n_percentile(self,percentile=85):
+    def n_percentile(self,percentile=85,totals=None):
         """return the number of days at N percent
    
         Keyword args:
         percentile -- percent at which you'd like day returned
         """
-        hist = self.histogram()
+        if totals is None:
+            totals = self.totals
+        
+        hist = self.histogram(totals=totals)
         total = 0
         for item in hist:
             total = total + item
 
         npercent = float(total) * (float(percentile)/100)
         total = 0
-        range = self.range_of_ints(self.totals)
+        range = self.range_of_ints(totals)
         for index,item in enumerate(hist):
             total = total + item
             if total >= npercent:
@@ -114,14 +117,22 @@ class Project(object):
             totalsofar = totalsofar + hist[index]
             print "%d\t%d\t%d" % (range[index],hist[index],(float(totalsofar)/total)*100)
 
-    def histogram(self):
+    def histogram(self,totals=None):
         """histogram of days to guesses"""
-        range = self.range_of_ints(self.totals)
-        return stats.histogram2(self.totals,range)
+        if totals is None:
+            totals = self.totals
+        range = self.range_of_ints(totals)
+        return stats.histogram2(totals,range)
 
     def range_of_ints(self,alist):
         """return range of integers for a given unordered list"""
         return range(int(min(alist)),int(max(alist))+1)
+
+    def man_days(self,percentile=85):
+        """
+        this uses unparallelized totals to get the number of man days the project will take.  this is the same as setting parallelizable=0 for every tasks in the project.
+        """
+        return self.n_percentile(percentile=percentile,totals=self.unparallelized_totals)
 
     def __str__(self):
         return self.name
