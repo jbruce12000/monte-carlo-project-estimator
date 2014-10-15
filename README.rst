@@ -17,8 +17,7 @@ Getting Started
 
 Background
 ----------
-I am a manager, not a programmer.  This project is based on ideas from
-How to Measure Anything: Finding the Value of "Intangibles" in Business by Doug Hubbard.  The goal is to create a fast monte carlo project estimation tool that can be used on the command line.  It takes a series of tasks with ranges and runs thousands of guesses when each task will be finished.  The results are combined and displayed.
+I am a programmer turned manager.  This project is based on ideas from How to Measure Anything: Finding the Value of "Intangibles" in Business by Doug Hubbard.  The goal is to create a fast monte carlo project estimation tool that can be used on the command line.  It takes a series of tasks with ranges and runs thousands of guesses when each task will be finished.  The results are combined and displayed.
 
 JSON Input File
 ---------------

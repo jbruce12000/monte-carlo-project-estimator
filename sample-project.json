@@ -1,12 +1,13 @@
 {
 "name" : "sample project",
+"start" : "2014-10-15",
 "tickets" : [
   {
     "name" : "TASK1",
     "mindays" : 10,
     "maxdays" : 21,
     "parallelizable" : 2,
-    "comment" : "task numbers imply nothing"
+    "comment" : "use any string for the name"
   },
   {
     "name" : "TASK2",
@@ -40,7 +41,8 @@
     "name" : "TASK6",
     "mindays" : 2,
     "maxdays" : 4,
-    "parallelizable" : 1
+    "parallelizable" : 1,
+    "comment" : "this task will take somewhere between 2 and 4 days"
   },
   {
     "name" : "TASK7",
