@@ -1,8 +1,9 @@
 from ticket import Ticket
-from scipy import stats
+#from scipy import stats
 from datetime import datetime, timedelta
 import json
 import os
+import numpy
 
 class Project(object):
     def __init__(self, file=None):
@@ -75,7 +76,7 @@ class Project(object):
         self.unparallelized_totals = [0] * iterations
         for t in self.tickets:
             t.random_guesses(size=iterations)
-            print "OK %d guesses for %s between %d and %d days" % (iterations, t, t.mindays, t.maxdays)
+            print("OK %d guesses for %s between %d and %d days" % (iterations, t, t.mindays, t.maxdays))
             for index,guess in enumerate(t.guesses):
                 self.totals[index] = self.totals[index] + float(t.guesses[index]) * t.parallelizable
                 # this could be used to get a raw estimate (without parallelization of the number of man days for a project
@@ -90,7 +91,7 @@ class Project(object):
         if totals is None:
             totals = self.totals
         
-        hist = self.histogram(totals=totals)
+        hist,bin_edges = self.histogram(totals=totals)
         total = 0
         for item in hist:
             total = total + item
@@ -105,24 +106,29 @@ class Project(object):
 
     def google_histogram(self):
         """tab separated histogram of days to guesses"""
-        print "OK printing histogram"
-        print "Day\tGuesses\tLikelyhood of completion on that day"
-        hist = self.histogram()
-        total = 0
-        for item in hist:
-            total = total + item
-        totalsofar = 0
-        range = self.range_of_ints(self.totals)
-        for index, item in enumerate(hist):
-            totalsofar = totalsofar + hist[index]
-            print "%d\t%d\t%d" % (range[index],hist[index],(float(totalsofar)/total)*100)
+        print("OK printing histogram")
+        print("Day\tGuesses\tLikelyhood of completion on that day")
+        hist,bin_edges = self.histogram()
+ 
+        
+        # Find the maximum frequency for scaling
+        max_freq = numpy.max(hist)
+        scale_factor = 20 / max_freq  # Adjust for desired width of the bars
+
+        for i in range(len(hist)):
+            bin_start = bin_edges[i]
+            bin_end = bin_edges[i+1]
+            frequency = hist[i]
+            bar_length = int(frequency * scale_factor)
+            print(f"{bin_start:d}: {'#' * bar_length} ({frequency})")        
 
     def histogram(self,totals=None):
         """histogram of days to guesses"""
         if totals is None:
             totals = self.totals
         range = self.range_of_ints(totals)
-        return stats.histogram2(totals,range)
+        #import pdb; pdb.set_trace();
+        return numpy.histogram(totals,range)
 
     def range_of_ints(self,alist):
         """return range of integers for a given unordered list"""

@@ -35,7 +35,7 @@ if __name__== "__main__":
     start_date = p.startdate
     end_date = p.enddate(days)
 
-    print "OK %d percent chance %s will be done in %d days" % (85,p,days)
+    print("OK %d percent chance %s will be done in %d days" % (85,p,days))
     if(end_date):
-        print "OK start date is %s and end date is %s" % (start_date,end_date)
-    print "OK %d percent chance %s has %d total man days of work" % (85,p,mandays)
+        print("OK start date is %s and end date is %s" % (start_date,end_date))
+    print("OK %d percent chance %s has %d total man days of work" % (85,p,mandays))
